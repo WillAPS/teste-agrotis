@@ -9,6 +9,6 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ResponseSuccess {
+public class ResponseSucesso {
     private String message = "Pessoa cadastrada com Sucesso";
 }

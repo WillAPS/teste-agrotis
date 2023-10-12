@@ -1,6 +1,6 @@
 package com.agrotis.testeagrotis.infra.http;
 
-import com.agrotis.testeagrotis.application.services.LaboratorioService;
+import com.agrotis.testeagrotis.application.services.ListagemLaboratorioService;
 import com.agrotis.testeagrotis.domain.Caracteristicas;
 import com.agrotis.testeagrotis.domain.Laboratorio;
 import lombok.AllArgsConstructor;
@@ -19,17 +19,19 @@ import java.util.List;
 @Log4j2
 public class LaboratorioController {
 
-    private final LaboratorioService laboratorioService;
-
+    private final ListagemLaboratorioService listagemLaboratorioService;
     @GetMapping("/buscar")
     public ResponseEntity<List<Laboratorio>> getLaboratorios(@RequestBody Caracteristicas caracteristicas){
 
-        var laboratorios = laboratorioService.buscarLaboratorios(caracteristicas);
+        List<Laboratorio> laboratoriosList = caracteristicas.getQtdMinima() != null
+                ? listagemLaboratorioService.buscarLaboratoriosFiltrados(caracteristicas.getQtdMinima())
+                : listagemLaboratorioService.buscarTodosLaboratorios();
 
-        if(caracteristicas.getOrdenado() != null && caracteristicas.getOrdenado()){
-            laboratorios = laboratorioService.ordenaLaboratorios(laboratorios);
+        if(caracteristicas.getOrdenarQuantidade() != null){
+            laboratoriosList.sort((lab1, lab2) -> Integer.compare(lab2.getQuantidadePessoa(), lab1.getQuantidadePessoa()));
         }
 
-        return ResponseEntity.accepted().body(laboratorios);
+        laboratoriosList.forEach(laboratorio -> laboratorio.setNome(laboratorio.getNome().toUpperCase()));
+        return ResponseEntity.accepted().body(laboratoriosList);
     }
 }

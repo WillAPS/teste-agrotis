@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Objects;
-import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -15,10 +14,8 @@ public class PropriedadeService {
     private final PropriedadeRepository propriedadeRepository;
 
     public Propriedade buscarPropriedadePorId(Long id, String nome) {
-        Optional<Propriedade> propriedade= propriedadeRepository.findById(id);
-        if(propriedade.isPresent() && !Objects.equals(propriedade.get().getNome(), nome)){
-            return null;
-        }
-        return propriedade.orElse(null);
+        return propriedadeRepository.findById(id)
+                .filter(propriedade -> Objects.equals(propriedade.getNome(), nome))
+                .orElse(null);
     }
 }

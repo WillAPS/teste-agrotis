@@ -7,10 +7,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class CriarPessoaService {
+public class CadastrarPessoa {
 
     private PessoaRepository repository;
-    public void salvarPessoa(Pessoa pessoa){
+    public void save(Pessoa pessoa){
         repository.save(pessoa);
     }
 }

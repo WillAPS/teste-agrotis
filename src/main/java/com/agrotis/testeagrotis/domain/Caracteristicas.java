@@ -6,8 +6,8 @@ import lombok.Getter;
 @Getter
 public class Caracteristicas {
 
-    private Boolean ordenado;
+    @JsonProperty("ordenar_quantidade")
+    private Boolean ordenarQuantidade;
     @JsonProperty("quantidade_minima")
     private Integer qtdMinima;
-
 }

@@ -1,13 +1,14 @@
-INSERT INTO laboratorio (nome, quantidade_pessoa) VALUES ('Agro Skynet', 0);
-INSERT INTO laboratorio (nome, quantidade_pessoa) VALUES ('Laboratorio ABC', 0);
-INSERT INTO laboratorio (nome, quantidade_pessoa) VALUES ('LabCorp', 0);
-INSERT INTO laboratorio (nome, quantidade_pessoa) VALUES ('LabTech', 0);
-INSERT INTO laboratorio (nome, quantidade_pessoa) VALUES ('BioLab', 0);
-INSERT INTO laboratorio (nome, quantidade_pessoa) VALUES ('MedTech', 0);
-INSERT INTO laboratorio (nome, quantidade_pessoa) VALUES ('LabExpress', 0);
-INSERT INTO laboratorio (nome, quantidade_pessoa) VALUES ('TechLab Solutions', 0);
-INSERT INTO laboratorio (nome, quantidade_pessoa) VALUES ('LifeScience Labs', 0);
-INSERT INTO laboratorio (nome, quantidade_pessoa) VALUES ('InovaLab', 0);
+INSERT INTO laboratorio (nome) VALUES ('Agro Skynet');
+INSERT INTO laboratorio (nome) VALUES ('Laboratorio ABC');
+INSERT INTO laboratorio (nome) VALUES ('LabCorp');
+INSERT INTO laboratorio (nome) VALUES ('LabTech');
+INSERT INTO laboratorio (nome) VALUES ('BioLab');
+INSERT INTO laboratorio (nome) VALUES ('MedTech');
+INSERT INTO laboratorio (nome) VALUES ('LabExpress');
+INSERT INTO laboratorio (nome) VALUES ('TechLab Solutions');
+INSERT INTO laboratorio (nome) VALUES ('LifeScience Labs');
+INSERT INTO laboratorio (nome) VALUES ('InovaLab');
+
 INSERT INTO propriedade (nome, cnpj) VALUES ('Fazenda XYZ', '36.627.718/0001-51');
 INSERT INTO propriedade (nome, cnpj) VALUES ('Fazenda ABC', '36.627.718/0001-52');
 INSERT INTO propriedade (nome, cnpj) VALUES ('Fazenda 123', '36.627.718/0001-53');
