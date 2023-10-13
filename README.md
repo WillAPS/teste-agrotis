@@ -10,11 +10,19 @@ tela;
     - Gradle
     - MySQL
 ---
+
+## Inicio
+
+    git clone https://github.com/WillAPS/teste-agrotis.git
+
+    Se possuir docker utilizar o comando 'docker-compose up' para subir
+    uma imagem do MySQL caso não, baixar o MySQL e criar uma db chamada dbTesteTecnico
+
 ## Configuração MySQL
 
-    url: jdbc:mysql://localhost:3306/db
+    url: jdbc:mysql://localhost:3306/dbTesteTecnico
     username: root
-    password: 1234
+    password: root
 
     Ao rodar o sistema pela primeira vez são geradas as tabelas
     pessoa, propriedade e laboratório as duas ultimas são populadas
