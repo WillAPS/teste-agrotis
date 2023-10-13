@@ -2,7 +2,6 @@
 
 **Descrição**: O teste consiste em construir uma API para ser utilizada na construção de uma
 tela;
-
 ---
 ## Pré-requisitos
 
@@ -10,6 +9,11 @@ tela;
     - Gradle
     - MySQL
 ---
+
+## Inicio
+
+    git clone https://github.com/WillAPS/teste-agrotis.git
+
 ## Configuração MySQL
 
     url: jdbc:mysql://localhost:3306/db
