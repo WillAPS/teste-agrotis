@@ -1,7 +1,8 @@
 package com.agrotis.testeagrotis.application.services;
 
-import com.agrotis.testeagrotis.domain.Laboratorio;
-import com.agrotis.testeagrotis.infra.repository.LaboratorioRepository;
+import com.agrotis.testeagrotis.api.application.services.ListagemLaboratorioService;
+import com.agrotis.testeagrotis.api.domain.Laboratorio;
+import com.agrotis.testeagrotis.api.infra.repository.LaboratorioRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -40,16 +41,12 @@ class ListagemLaboratorioServiceTest {
 
         List<Laboratorio> laboratorios = Arrays.asList(laboratorio1, laboratorio2);
 
-        // Simulando o comportamento do laboratorioRepository
         when(laboratorioRepository.findByQuantidadePessoaGreaterThanEqual(quantidade)).thenReturn(laboratorios);
 
-        // Chamando o método do serviço
         List<Laboratorio> resultados = listagemLaboratorioService.buscarLaboratoriosFiltrados(quantidade);
 
-        // Verificando se o laboratorioRepository foi chamado corretamente
         verify(laboratorioRepository, times(1)).findByQuantidadePessoaGreaterThanEqual(quantidade);
 
-        // Verificando se os resultados contêm os laboratórios esperados
         assertNotNull(resultados);
         assertEquals(2, resultados.size());
         assertEquals(1L, resultados.get(0).getId());
@@ -66,16 +63,12 @@ class ListagemLaboratorioServiceTest {
 
         List<Laboratorio> laboratorios = Arrays.asList(laboratorio1, laboratorio2);
 
-        // Simulando o comportamento do laboratorioRepository
         when(laboratorioRepository.findAll()).thenReturn(laboratorios);
 
-        // Chamando o método do serviço
         List<Laboratorio> resultados = listagemLaboratorioService.buscarTodosLaboratorios();
 
-        // Verificando se o laboratorioRepository foi chamado corretamente
         verify(laboratorioRepository, times(1)).findAll();
 
-        // Verificando se os resultados contêm os laboratórios esperados
         assertNotNull(resultados);
         assertEquals(2, resultados.size());
         assertEquals(1L, resultados.get(0).getId());

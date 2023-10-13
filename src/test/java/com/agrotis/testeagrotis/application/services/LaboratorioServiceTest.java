@@ -1,7 +1,8 @@
 package com.agrotis.testeagrotis.application.services;
 
-import com.agrotis.testeagrotis.domain.Laboratorio;
-import com.agrotis.testeagrotis.infra.repository.LaboratorioRepository;
+import com.agrotis.testeagrotis.api.application.services.LaboratorioService;
+import com.agrotis.testeagrotis.api.domain.Laboratorio;
+import com.agrotis.testeagrotis.api.infra.repository.LaboratorioRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -35,16 +36,12 @@ class LaboratorioServiceTest {
         laboratorio.setId(id);
         laboratorio.setNome(nome);
 
-        // Simulando o comportamento do laboratorioRepository
         when(laboratorioRepository.findById(id)).thenReturn(Optional.of(laboratorio));
 
-        // Chamando o método do serviço
         Laboratorio resultado = laboratorioService.buscarLaboratorioPorId(id, nome);
 
-        // Verificando se o laboratorioRepository foi chamado corretamente
         verify(laboratorioRepository, times(1)).findById(id);
 
-        // Verificando se o resultado é o laboratório esperado
         assertNotNull(resultado);
         assertEquals(id, resultado.getId());
         assertEquals(nome, resultado.getNome());
@@ -54,10 +51,8 @@ class LaboratorioServiceTest {
     void testAtualizarLaboratorio() {
         Laboratorio laboratorio = new Laboratorio();
 
-        // Chamando o método do serviço
         laboratorioService.atualizarLaboratorio(laboratorio);
 
-        // Verificando se o laboratorioRepository foi chamado para salvar o laboratório
         verify(laboratorioRepository, times(1)).save(eq(laboratorio));
     }
 
