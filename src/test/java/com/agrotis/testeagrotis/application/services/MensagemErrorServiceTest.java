@@ -28,16 +28,16 @@ class MensagemErrorServiceTest {
 
     @Test
     void testGetErrosBindingResult() {
-        BindingResult bindingResult = mock(BindingResult.class);
+        var bindingResult = mock(BindingResult.class);
 
-        List<FieldError> fieldErrors = List.of(
+        var fieldErrors = List.of(
                 new FieldError("objeto", "campo1", "Mensagem de erro 1"),
                 new FieldError("objeto", "campo2", "Mensagem de erro 2")
         );
 
         when(bindingResult.getFieldErrors()).thenReturn(fieldErrors);
 
-        MensagemErro mensagemErro = messageErrorService.getErrosBindingResult(bindingResult);
+        var mensagemErro = messageErrorService.getErrosBindingResult(bindingResult);
 
         Map<String, List<String>> errors = mensagemErro.getErrors();
         assertEquals(2, errors.size());

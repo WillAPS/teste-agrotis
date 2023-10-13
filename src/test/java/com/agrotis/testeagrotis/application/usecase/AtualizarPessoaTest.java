@@ -26,9 +26,9 @@ class AtualizarPessoaTest {
 
     @Test
     void testBuscarPessoa() {
-        Long id = 1L;
+        var id = 1L;
 
-        Pessoa pessoaSimulada = new Pessoa();
+        var pessoaSimulada = new Pessoa();
         pessoaSimulada.setId(id);
         pessoaSimulada.setNome("Nome Original");
 
@@ -43,7 +43,7 @@ class AtualizarPessoaTest {
 
     @Test
     void testUpdate() {
-        Pessoa pessoaSimulada = new Pessoa();
+        var pessoaSimulada = new Pessoa();
         pessoaSimulada.setId(1L);
         pessoaSimulada.setNome("Nome Original");
 

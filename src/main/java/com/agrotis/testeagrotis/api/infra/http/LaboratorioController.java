@@ -8,7 +8,10 @@ import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.*;
 
@@ -68,7 +71,7 @@ public class LaboratorioController {
 
     private static List<Pessoa> getFinalPessoaList(List<Pessoa> pessoaList, List<Pessoa> pessoas) {
         for (Pessoa pessoaOrigem : pessoas) {
-            boolean idJaExiste = pessoaList.stream()
+            var idJaExiste = pessoaList.stream()
                     .anyMatch(item -> item.getId().equals(pessoaOrigem.getId()));
             if (!idJaExiste) {
                 pessoaList.add(pessoaOrigem);

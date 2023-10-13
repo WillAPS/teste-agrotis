@@ -30,15 +30,15 @@ class LaboratorioServiceTest {
 
     @Test
     void testBuscarLaboratorioPorId() {
-        Long id = 1L;
-        String nome = "Laboratorio ABC";
-        Laboratorio laboratorio = new Laboratorio();
+        var id = 1L;
+        var nome = "Laboratorio ABC";
+        var laboratorio = new Laboratorio();
         laboratorio.setId(id);
         laboratorio.setNome(nome);
 
         when(laboratorioRepository.findById(id)).thenReturn(Optional.of(laboratorio));
 
-        Laboratorio resultado = laboratorioService.buscarLaboratorioPorId(id, nome);
+        var resultado = laboratorioService.buscarLaboratorioPorId(id, nome);
 
         verify(laboratorioRepository, times(1)).findById(id);
 
@@ -49,7 +49,7 @@ class LaboratorioServiceTest {
 
     @Test
     void testAtualizarLaboratorio() {
-        Laboratorio laboratorio = new Laboratorio();
+        var laboratorio = new Laboratorio();
 
         laboratorioService.atualizarLaboratorio(laboratorio);
 

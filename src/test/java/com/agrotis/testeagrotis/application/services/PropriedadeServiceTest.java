@@ -25,16 +25,16 @@ class PropriedadeServiceTest {
 
     @Test
     void testBuscarPropriedadePorId() {
-        Long id = 1L;
-        String nome = "Fazenda ABC";
+        var id = 1L;
+        var nome = "Fazenda ABC";
 
-        Propriedade propriedadeSimulada = new Propriedade();
+        var propriedadeSimulada = new Propriedade();
         propriedadeSimulada.setId(id);
         propriedadeSimulada.setNome(nome);
 
         when(propriedadeRepository.findById(id)).thenReturn(Optional.of(propriedadeSimulada));
 
-        Propriedade propriedadeEncontrada = propriedadeService.buscarPropriedadePorId(id, nome);
+        var propriedadeEncontrada = propriedadeService.buscarPropriedadePorId(id, nome);
 
         assertEquals(id, propriedadeEncontrada.getId());
         assertEquals(nome, propriedadeEncontrada.getNome());

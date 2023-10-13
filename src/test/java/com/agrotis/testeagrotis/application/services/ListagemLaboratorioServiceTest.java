@@ -55,17 +55,17 @@ class ListagemLaboratorioServiceTest {
 
     @Test
     void testBuscarTodosLaboratorios() {
-        Laboratorio laboratorio1 = new Laboratorio();
+        var laboratorio1 = new Laboratorio();
         laboratorio1.setId(1L);
 
-        Laboratorio laboratorio2 = new Laboratorio();
+        var laboratorio2 = new Laboratorio();
         laboratorio2.setId(2L);
 
-        List<Laboratorio> laboratorios = Arrays.asList(laboratorio1, laboratorio2);
+        var laboratorios = Arrays.asList(laboratorio1, laboratorio2);
 
         when(laboratorioRepository.findAll()).thenReturn(laboratorios);
 
-        List<Laboratorio> resultados = listagemLaboratorioService.buscarTodosLaboratorios();
+        var resultados = listagemLaboratorioService.buscarTodosLaboratorios();
 
         verify(laboratorioRepository, times(1)).findAll();
 
