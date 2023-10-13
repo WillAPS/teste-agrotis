@@ -50,6 +50,6 @@ public class CadastrarPessoaController {
         laboratorioService.atualizarLaboratorio(laboratorioRecebido);
         cadastrarPessoa.save(pessoaRecebida);
 
-        return ResponseEntity.ok("Pessoa atualizada com sucesso");
+        return ResponseEntity.ok("Pessoa cadastrada com sucesso");
     }
 }
